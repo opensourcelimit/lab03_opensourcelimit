@@ -31,13 +31,7 @@ private:
     // (Optional) You can add some private helper functions here.
 
     // definition of Node structure (DO NOT CHANGE):
-    clear(){
-     node* traversal = first;
-     while(traversal){
-     
-
-     }
-    }
+   
     struct Node {
         int info;
         Node *next;

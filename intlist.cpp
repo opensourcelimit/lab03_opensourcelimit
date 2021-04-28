@@ -10,20 +10,20 @@ using std::cout;
 // copy constructor
 IntList::IntList(const IntList& source) {
     //IMPLEMENT THIS
-    node* traverse = source.first;
+    Node* traverse = source.first;
     while(traverse){
-    node* copyNode = new node;
+    Node* copyNode = new Node;
     copyNode->info = traverse->info;
-    append(copyNode);
+    append(copyNode->info);
     traverse = traverse->next;
     }
 }
 
 // destructor deletes all nodes
 IntList::~IntList() {
- node* traverse = first;
+ Node* traverse = first;
  while(traverse){
-    node* destroy = traverse;
+    Node* destroy = traverse;
     traverse = traverse->next;
     delete destroy;
  }
@@ -35,7 +35,7 @@ IntList::~IntList() {
 // return sum of values in list
 int IntList::sum() const {
    int sum = 0;
-   for(node* traverse = first; traverse != nullptr; traverse = traverse->next){
+   for(Node* traverse = first; traverse != nullptr; traverse = traverse->next){
      sum = traverse->info;
 
    }
@@ -46,7 +46,7 @@ int IntList::sum() const {
 
 // returns true if value is in the list; false if not
 bool IntList::contains(int value) const {
-   node* traverse = first;
+   Node* traverse = first;
    while(traverse){
        if(traverse->info ==  value){ return true;}
     traverse = traverse->next;
@@ -58,7 +58,7 @@ bool IntList::contains(int value) const {
 // returns maximum value in list, or 0 if empty list
 int IntList::max() const {
     if(first == nullptr){return 0;}
-    node* traverse = first->next;
+    Node* traverse = first->next;
     int max = first->info;
     
     while(traverse){
@@ -72,12 +72,13 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-   double average = static_cast<double>(sum())/count() // REPLACE THIS NON-SOLUTION
+   double average = static_cast<double>(sum())/count();
+   return average;// REPLACE THIS NON-SOLUTION
 }
 
 // inserts value as new node at beginning of list
 void IntList::insertFirst(int value) {
-   node* newNode = new node;
+   Node* newNode = new Node;
    newNode->info = value;
 
    newNode->next = first;
