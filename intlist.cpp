@@ -21,13 +21,7 @@ IntList::IntList(const IntList& source) {
 
 // destructor deletes all nodes
 IntList::~IntList() {
- Node* traverse = first;
- while(traverse){
-    Node* destroy = traverse;
-    traverse = traverse->next;
-    delete destroy;
- }
- first = nullptr;
+ clear();
 
 }
 
@@ -89,7 +83,7 @@ void IntList::insertFirst(int value) {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-    //IMPLEMENT
+   
     return *this;
 }
 

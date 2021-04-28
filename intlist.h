@@ -31,13 +31,26 @@ private:
     // (Optional) You can add some private helper functions here.
 
     // definition of Node structure (DO NOT CHANGE):
-   
+
+
+
+    
     struct Node {
         int info;
         Node *next;
     };
 
     Node *first; // pointer to first node (DO NOT CHANGE):
+    void clear(){
+    Node* traverse = first;
+    while(traverse){
+    Node* destroy = traverse;
+    traverse = traverse->next;
+    delete destroy;
+    }
+    first = nullptr;
+
+}
 };
 
 #endif
