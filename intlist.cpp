@@ -83,7 +83,14 @@ void IntList::insertFirst(int value) {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-   
+    clear();
+    Node* traverse = source.first;
+    while(traverse){
+    Node* copyNode = new Node;
+    copyNode->info = traverse->info;
+    append(copyNode->info);
+    traverse = traverse->next;
+    }
     return *this;
 }
 
