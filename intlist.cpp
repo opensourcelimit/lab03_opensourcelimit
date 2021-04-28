@@ -36,7 +36,7 @@ IntList::~IntList() {
 int IntList::sum() const {
    int sum = 0;
    for(Node* traverse = first; traverse != nullptr; traverse = traverse->next){
-     sum = traverse->info;
+     sum += traverse->info;
 
    }
 
@@ -72,6 +72,7 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
+    if(first == nullptr){return 0;}
    double average = static_cast<double>(sum())/count();
    return average;// REPLACE THIS NON-SOLUTION
 }
